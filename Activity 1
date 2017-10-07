@@ -1,0 +1,38 @@
+//Review MathsIsFun: Leap Years. Create a program that asks the user for a year, 
+//and then calculate and display whether or not the given year is a leap year.
+//Use separate subroutines/functions/methods for input, processing, and output. 
+//Avoid global variables by passing parameters and returning results.
+#include <iostream>
+
+using namespace std;
+int userYear();
+void calculations(int year);
+
+int main()
+{
+int year = userYear();
+calculations(year);
+    return 0;
+}
+
+int userYear()
+{
+int year;
+cout << "Hello, Please input a year and see if it is leap"<<endl;
+cin >> year;
+return year;
+
+}
+
+
+void calculations(int year)
+{
+if (((year%4) == 0) && (((year%100)!=0) || ((year%400) == 0))==true)
+{
+cout << year << " s a leap year"<<endl;
+}
+else if (((year%4) != 0) && (((year%100)==0) || ((year%400)!= 0)))
+{
+cout << year << " is not a leap year"<<endl;
+}
+}
