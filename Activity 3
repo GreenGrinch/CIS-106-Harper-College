@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+void liveInMoments(int age);
+int userAge();
+void results(int month, int day, int hour, int minute, int second);
+
+
+int main()
+{
+	int age = userAge();
+
+	liveInMoments(age);
+
+	return 0;
+}
+
+
+void liveInMoments(int age)
+{
+
+	int month;
+	int day;
+	int hour;
+	int minute;
+	int second;
+
+	month = (age * 12);
+	day = (age * 365);
+	hour = (day * 24);
+	minute = (hour * 60);
+	second = (minute * 60);
+
+	results(month, day, hour, minute, second);
+}
+
+int userAge()
+{
+	int age;
+
+	cout << "Hey! many years do you live? ";
+	cin >> age;
+
+	return age;
+
+}
+void results(int month, int day, int hour,int minute, int second)
+{
+	cout << "You have lived " << second << " seconds, "
+	<<endl<< minute << " minutes, " << endl <<
+		hour << " hours, " << endl <<
+		day << " days, and " << endl <<
+		month << " months." << endl;
+}
