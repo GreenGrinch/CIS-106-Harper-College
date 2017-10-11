@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+int userYear();
+bool isLeap(int year);
+void results(int year);
+
+int main()
+{
+    int year = userYear();
+    results(year);
+
+    return 0;
+}
+
+int userYear()
+{
+    int year;
+    cout << "Hello, Please input a year and see if it is leap" << endl;
+    cin >> year;
+    return year;
+}
+
+bool isLeap(int year)
+{
+    if (((year % 4) == 0) && (((year % 100) != 0) || ((year % 400) == 0))) {
+        return true;
+    }
+    else if (((year % 4) != 0) && (((year % 100) == 0) || ((year % 400) != 0))) {
+        return false;
+    }
+} 
+
+void results(int year)
+{
+    if (isLeap(year)) {
+        cout << year << " is leap" << endl;
+    }
+    else {
+        cout << year << " is not leap" << endl;
+    }
+}
