@@ -1,0 +1,107 @@
+// Example program
+#include <iostream>
+#include <string>
+
+// Review Wikipedia: Zeller's congruence. Create a program that asks the user
+// for their birthday (year, month, and day)
+// and then calculate and display the day of the week on which they were born.
+// Use if/else conditional statements to convert the numeric day of the week
+// to the correct string representation (Monday, Tuesday, Wednesday, etc.). Use
+// separate subroutines/functions/methods for input, processing, and output.
+// Avoid global variables by passing parameters and returning results.
+
+using namespace std;
+int inputDay();
+int inputMonth();
+int inputYear();
+int Zellerfunction(int userDay, int userMonth, int userYear);
+void results(int yourDay);
+int main()
+{
+int userDay;
+int userMonth;
+int userYear;
+    inputYear();
+    inputMonth();
+    inputDay();
+    int yourDay = Zellerfunction(userDay, userMonth, userYear);
+
+    results(yourDay);
+}
+
+int Zellerfunction(int userDay, int userMonth, int userYear)
+{
+    int dayOfTheWeek;
+    int zeroBasedCentury;
+    int yearOfTheCentury;
+    zeroBasedCentury = userYear / 100;
+    yearOfTheCentury = userYear % 100;
+
+    dayOfTheWeek = ((userDay + ((13*(userMonth + 1)) / 5) + yearOfTheCentury + (yearOfTheCentury / 4)
+                        + (zeroBasedCentury / 4) + (5 * zeroBasedCentury))
+        % 7);
+
+    return dayOfTheWeek;
+}
+
+int inputYear()
+{
+    int userYear;
+    
+
+    cout << "Input your year of birth" << endl;
+    cin >> userYear;
+    
+   return userYear;
+ 
+}
+int inputDay()
+{
+    int userDay;
+
+    cout << "and day of your birth" << endl;
+    cin >> userDay;
+    
+    return userDay;
+    }
+    
+    int inputMonth()
+    {
+        int userMonth;
+         cout << "Now month of birth" << endl;
+    cin >> userMonth;
+
+    return userMonth;
+}
+
+void results(int yourDay)
+{
+    if (yourDay == 0)
+    {
+        cout << "you have been born in Monday" << endl;
+    }
+    else if (yourDay == 1)
+    {
+        cout << "you have been born in Tuesday" << endl;
+    }
+    else if (yourDay == 2)
+    {
+        cout << "you have been born in Wednesday" << endl;
+    }
+    else if (yourDay == 3)
+    {
+        cout << "you have been born in Thursday" << endl;
+    }
+    else if (yourDay == 4)
+    {
+        cout << "you have been born in Friday" << endl;
+    }
+    else if (yourDay == 5)
+    {
+        cout << "you have been born in Saturday" << endl;
+    }
+    else if (yourDay == 6)
+    {
+        cout << "you have been born in Sunday" << endl;
+    }
+}
