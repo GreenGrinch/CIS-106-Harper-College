@@ -8,14 +8,13 @@
 using namespace std;
 
 int userAge();
-void userChoice(int month, int day, int hour, int minute, int second);
+int userChoice(int months, int days, int hours, int minutes, int seconds);
 int yearsToMonths(int years);
 int yearsToDays(int years);
 int daysToHours(int day);
 int hoursToMinutes(int hours);
 int minutesToSeconds(int minutes);
-// int results(int choice);
-
+ void results(int choice,int months,int days,int hours, int minutes, int seconds);
 int main()
 {
     int age = userAge();
@@ -25,7 +24,7 @@ int main()
     int hours;
     int minutes;
     int seconds;
-
+    int choice;
 
     months = yearsToMonths(age); // +
     days = yearsToDays(age); //+
@@ -33,7 +32,7 @@ int main()
     minutes = hoursToMinutes(daysToHours(yearsToDays(age)));
     seconds = minutesToSeconds(hoursToMinutes(yearsToDays(age)));
     userChoice(months, days, hours, minutes, seconds);
-    // results(choice);
+    results(choice,months,days,hours,minutes,seconds);
 
 
     return 0;
@@ -84,15 +83,19 @@ int minutesToSeconds(int minutes)
     return seconds;
 }
 
-void userChoice(int months, int days, int hours, int minutes, int seconds)
+int userChoice(int months, int days, int hours, int minutes, int seconds)
 {
     int choice;
     cout << "if you want to know how long you are living in days, hours, minutes, seconds input "
             "your choice"
          << endl;
     cin >> choice;
+return choice;
+}
 
-    if (choice = days)
+void results(int choice,int days,int months,int hours,int minutes,int seconds)
+{
+if (choice = days)
     {
         cout << "You lived " << days << " days" << endl;
     }
@@ -120,5 +123,5 @@ void userChoice(int months, int days, int hours, int minutes, int seconds)
     else
     {
         cout << "Not today Professor ;D";
-    }
+    }    
 }
