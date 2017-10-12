@@ -1,0 +1,124 @@
+// Create a program that asks the user how old they are in years.
+// Then ask the user if they would like to know how old they are in months, days, hours, or seconds.
+// Use if/else conditional statements to display their approximate age in the selected timeframe.
+// Use separate subroutines/functions/methods for input, processing, and output.
+// Avoid global variables by passing parameters and returning results.
+#include <iostream>
+
+using namespace std;
+
+int userAge();
+void userChoice(int month, int day, int hour, int minute, int second);
+int yearsToMonths(int years);
+int yearsToDays(int years);
+int daysToHours(int day);
+int hoursToMinutes(int hours);
+int minutesToSeconds(int minutes);
+// int results(int choice);
+
+int main()
+{
+    int age = userAge();
+
+    int months;
+    int days;
+    int hours;
+    int minutes;
+    int seconds;
+
+
+    months = yearsToMonths(age); // +
+    days = yearsToDays(age); //+
+    hours = daysToHours(yearsToDays(age)); //+
+    minutes = hoursToMinutes(daysToHours(yearsToDays(age)));
+    seconds = minutesToSeconds(hoursToMinutes(yearsToDays(age)));
+    userChoice(months, days, hours, minutes, seconds);
+    // results(choice);
+
+
+    return 0;
+}
+
+int userAge()
+{
+    int age;
+
+    cout << "Hey! many years do you live? ";
+    cin >> age;
+
+    return age;
+}
+int yearsToDays(int years)
+{
+    int days;
+    days = years * 365;
+    return days;
+}
+
+int yearsToMonths(int years)
+{
+    int months;
+    months = years * 12;
+    return months;
+}
+
+
+int daysToHours(int days)
+{
+    int hours;
+    hours = days * 24;
+    return hours;
+}
+int hoursToMinutes(int hours)
+{
+    int minutes;
+    minutes = hours * 60;
+    return minutes;
+}
+
+int minutesToSeconds(int minutes)
+{
+
+    int seconds;
+    seconds = minutes * 60;
+    return seconds;
+}
+
+void userChoice(int months, int days, int hours, int minutes, int seconds)
+{
+    int choice;
+    cout << "if you want to know how long you are living in days, hours, minutes, seconds input "
+            "your choice"
+         << endl;
+    cin >> choice;
+
+    if (choice = days)
+    {
+        cout << "You lived " << days << " days" << endl;
+    }
+    else if (choice = hours)
+
+    {
+        cout << "You lived " << hours << " hours" << endl;
+    }
+
+    else if (choice = months)
+    {
+        cout << "You lived " << months << " months" << endl;
+    }
+
+    else if (choice = minutes)
+    {
+        cout << "You lived " << minutes << " minutes" << endl;
+    }
+
+    else if (choice = seconds)
+    {
+        cout << "You lived " << seconds << " seconds" << endl;
+    }
+
+    else
+    {
+        cout << "Not today Professor ;D";
+    }
+}
