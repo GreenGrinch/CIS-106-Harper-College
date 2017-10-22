@@ -1,0 +1,78 @@
+// Review MathsIsFun: Definition of Average. Create a program that asks the user to enter grade scores.
+//Start by asking the user how many scores they would like to enter. Then use a loop to request each score and add it to a total.
+//Finally, calculate and display the average for the entered scores. Using separate subroutines/functions/methods,
+//implement the loop control structure based on a while loop in one subroutine and a for loop in the other subroutine.
+//Use separate subroutines/functions/methods for input, processing, and output. Avoid global variables by passing parameters and returning results.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// function prototypes
+double scorenumber();
+double scoretotal(double scorenum);
+double avarage(double total, double tempscore);
+double finalOutput(double avg);
+
+
+
+int main()
+{
+    // variable declarations
+	double scoren;   
+	double scoretot;
+	double sum;
+	double finalOut;
+	// function calls
+	scoren = scorenumber();
+	scoretot = scoretotal(scoren);
+	sum = avarage (scoren,scoretot);
+	finalOut = finalOutput(sum);
+	
+
+
+}
+
+double scorenumber()
+{
+    double tempScore;
+    cout<< "How many scores would you like to enter: "; // user input
+    cin >> tempScore;
+    
+    return tempScore;    
+    
+}
+
+
+double scoretotal(double scorenum)
+{
+    double ustotal=0;
+    double total=0;
+    double score;
+    cout << "Add every score"<< endl;                       // processing score 
+    for ( score = 1; score <= scorenum; score++)
+    {
+   cout << "score number " << score<<": "<< endl;
+    cin >> ustotal;
+    
+    total=ustotal+total;
+    
+    }
+
+    return total;
+}
+
+double avarage(double total ,double tempScore)  // avarage score calculation
+    {
+        double avg;
+    avg = (tempScore/total);
+    return avg;
+    }
+    
+    
+   double finalOutput(double avg)                       // avarage score output
+    
+    {
+    cout << "Your avarage score is: " << avg;
+    return 0;
+}
