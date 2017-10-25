@@ -1,0 +1,93 @@
+// Review MathsIsFun: 10x Printable Multiplication Table. Create a program that
+// uses nested loops to generate a multiplication table.
+// Rather than simply creating a 10 by 10 table, ask the user to enter the
+// starting and ending values. Include row and column labels.
+
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+
+int startValue(); // predeclarations
+int endValue();
+int print(int start, int end);
+void calculations(int start, int end);
+
+int main()
+{
+    int start = startValue(); //  function calls
+    int end = endValue();
+    calculations(start, end);
+    print(start, end);
+
+    return 0;
+}
+
+int print(int start, int end)
+{
+
+    cout << setw(4) << " ";
+    for (int firstrow = start; firstrow <= end; firstrow++) // printing provided numbers
+    {
+        cout << setw(3) << firstrow << " ";
+    }
+    cout << endl;
+
+    cout << setw(4) << " ";
+    for (int secondrow = start; secondrow <= end; secondrow++) // printing accurate number of dashes
+
+    {
+        cout << "----";
+    }
+    cout << endl;
+    return 0;
+}
+
+int startValue()
+{
+    int start;
+
+    cout << "Enter a start index: " << endl;
+
+    cin >> start;
+    return start;
+}
+int endValue()
+
+{
+    int end;
+
+    cout << "enter an end index: " << endl;
+
+    cin >> end;
+
+    return end;
+}
+
+void calculations(int start, int end)
+
+{
+
+    for (int i = start; i <= end; i++)
+    {
+
+        if (i == start)
+        {
+
+            print(start, end);
+        }
+
+        for (int j = start; j <= end; j++) // loop on columns
+        {
+
+            if (j == start) // row column
+            {
+
+                cout << setw(3) << i << "|";
+            }
+
+            cout << setw(3) << (i * j) << " "; // multiplification
+        }
+        cout << endl;
+    }
+}
